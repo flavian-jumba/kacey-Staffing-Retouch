@@ -1,0 +1,32 @@
+{
+  "name": "kacey-staffing-tasklog",
+  "version": "1.0.0",
+  "description": "Change tracking system for Kacey Staffing project",
+  "main": "tasklog-manager.js",
+  "scripts": {
+    "log:new": "node scripts/create-monthly-log.js",
+    "log:update": "node scripts/update-tasklog.js",
+    "log:summary": "node scripts/generate-summary.js",
+    "log:view": "node scripts/view-logs.js"
+  },
+  "tasklog": {
+    "currentMonth": "2025-09",
+    "logDirectory": "./logs",
+    "template": "./TASKLOG_TEMPLATE.md",
+    "mainLog": "./TASKLOG.md",
+    "autoGenerate": true,
+    "categories": [
+      "UI/UX Changes",
+      "Backend/Functionality", 
+      "Bug Fixes",
+      "Mobile/Responsive",
+      "Performance",
+      "Security",
+      "Documentation",
+      "Testing"
+    ]
+  },
+  "keywords": ["tasklog", "changelog", "project-tracking"],
+  "author": "Kacey Staffing Team",
+  "license": "MIT"
+}

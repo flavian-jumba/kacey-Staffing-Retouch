@@ -1,0 +1,81 @@
+/* Minimal Scroll Animations */
+
+/* Simple fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple card hover effect */
+.modern-card {
+  transition: all 0.2s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll reveal utilities */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Simple button hover */
+.btn-modern {
+  transition: all 0.2s ease;
+}
+
+.btn-modern:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus states for accessibility */
+.focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* ── Infinite Logo Slider ── */
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes infinite-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.animate-infinite-scroll {
+  animation: infinite-scroll linear infinite;
+}
+.animate-infinite-scroll-reverse {
+  animation: infinite-scroll-reverse linear infinite;
+}

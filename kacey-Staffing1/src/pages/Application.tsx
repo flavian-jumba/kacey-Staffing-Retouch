@@ -1,0 +1,122 @@
+import React from 'react';
+import ApplicationMultiStepForm from '@/components/ApplicationMultiStepForm';
+import StackingCard, { type ProjectData } from '@/components/ui/stacking-card';
+import { CheckCircle, Phone, Mail, MapPin } from 'lucide-react';
+
+const programProjects: ProjectData[] = [
+  {
+    title: 'Teaching Excellence',
+    description:
+      'Share your knowledge in American educational institutions and inspire the next generation while gaining invaluable teaching experience.',
+    link: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    color: '#5196fd',
+    href: '/teaching-opportunities',
+  },
+  {
+    title: 'Hospitality Excellence',
+    description:
+      'Experience world-class hospitality operations in luxury hotels, resorts, and restaurants across America.',
+    link: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    color: '#8f89ff',
+    href: '/hospitality-careers',
+  },
+  {
+    title: 'Healthcare Heroes',
+    description:
+      'Join America\'s healthcare system as a CNA and make a meaningful difference in patients\' lives while building your medical career.',
+    link: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    color: '#ed649e',
+    href: '/healthcare-staffing',
+  },
+];
+
+const J1Program = () => {
+  return (
+    <div className="relative min-h-screen font-sans">
+            {/* ── Mesh Gradient Background ── */}
+      <div className="fixed inset-0 pointer-events-none -z-10" style={{ overflow: 'hidden' }}>
+        <div
+            className="absolute inset-0"
+            style={{
+                background: `
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(12, 192, 223, 0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(12, 192, 223, 0.25) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 70% at 60% 90%, rgba(56, 189, 248, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 40% at 10% 30%, rgba(125, 211, 252, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 90% 80% at 50% 50%, rgba(224, 242, 254, 0.6) 0%, transparent 70%),
+      linear-gradient(135deg, #e0f7fa 0%, #e8f5fd 25%, #f0f9ff 50%, #e0f2fe 75%, #dff6fd 100%)
+      `,
+            }}
+        />
+        <div className="absolute top-20 right-[30%] w-72 h-72 rounded-full bg-[#0cc0df]/8 blur-3xl" />
+        <div className="absolute bottom-10 left-[10%] w-96 h-96 rounded-full bg-sky-200/20 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 w-full h-full">
+        <section id="programs" className="pt-28 pb-20 scroll-mt-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Choose Your Path to Success
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our comprehensive programs designed to launch your international career
+            </p>
+          </div>
+
+          <StackingCard projects={programProjects} />
+        </section>
+
+        <section id="apply-now" className="py-20 scroll-mt-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              Begin Your Application Journey
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Take the first step towards your American career. Our streamlined application process makes it easy to get started.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 relative items-start">
+            <div className="lg:col-span-2 flex justify-center">
+              <ApplicationMultiStepForm />
+            </div>
+
+            <div className="space-y-8 lg:sticky lg:top-28 lg:h-fit lg:mt-[124px]">
+              <div className="bg-gradient-to-br from-[#8B1A4A] to-[#6a1236] text-white rounded-2xl p-8 shadow-xl">
+                <h3 className="text-2xl font-bold mb-6">Need Help?</h3>
+                <p className="text-white/90 mb-6">
+                  Our team is here to assist you throughout the application process.
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <Phone className="h-5 w-5 mr-3 text-white/80" />
+                    <span>+254 793 934455</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Mail className="h-5 w-5 mr-3 text-white/80" />
+                    <span>info@kaceystaffing.com</span>
+                  </div>
+                  <div className="flex items-center">
+                    <MapPin className="h-5 w-5 mr-3 text-white/80" />
+                    <span>Nairobi, Kenya</span>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-white/20">
+                  <p className="text-sm text-white/80">
+                    Office Hours: Monday - Friday, 9:00 AM - 5:00 PM (EAT)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </div>
+  );
+};
+
+export default J1Program;
