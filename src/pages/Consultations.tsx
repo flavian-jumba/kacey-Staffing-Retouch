@@ -47,7 +47,7 @@ const Consultations = () => {
           
           <p className="text-xl md:text-2xl mb-12 text-blue-100 max-w-4xl mx-auto leading-relaxed">
             Book a personalized consultation with our experts to discuss your career goals, 
-            program options, and create a roadmap to your American dream.
+            program options, and create a roadmap to your global career success.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">

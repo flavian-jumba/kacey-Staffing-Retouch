@@ -78,7 +78,7 @@ const services = [
     badge: <Star className="w-3.5 h-3.5 absolute -top-1 -right-1 text-sky-400" />,
     title: "Ongoing Mentorship",
     description:
-      "Our commitment doesn't end at placement. We provide continuous mentorship and support throughout every candidate's professional journey in the U.S.",
+      "Our commitment doesn't end at placement. We provide continuous mentorship and support throughout every candidate's professional journey",
     position: "right",
   },
 ];
@@ -257,9 +257,11 @@ export default function AboutMission() {
         </motion.div>
 
         <motion.p className="text-center max-w-2xl mx-auto mb-14 text-slate-500 leading-relaxed" variants={item}>
-          To transform lives and support institutional growth by connecting outstanding international talent
-          with meaningful U.S. career opportunities — upholding the highest standards of ethics, compliance,
-          and care. <span className="font-medium" style={{ color: BURGUNDY }}>Talent knows no borders.</span>
+          We connect skilled and unskilled professionals to international job opportunities across healthcare, teaching, hospitality, and a wide range of other industries.
+
+Our mission is to empower candidates by providing access to global career pathways, supporting their professional growth, and helping them achieve long-term success abroad.
+
+We are committed to delivering reliable, ethical, and efficient recruitment services that open doors to life-changing opportunities worldwide. <span className="font-medium" style={{ color: BURGUNDY }}>Talent knows no borders.</span>
         </motion.p>
 
         {/* ── 3-col grid ── */}

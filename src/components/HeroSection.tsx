@@ -149,8 +149,7 @@ const HeroSection = () => {
                             custom={2}
                             className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-lg mb-7"
                         >
-                            Empowering healthcare, teaching, and hospitality professionals to
-                            build world-class careers in the United States. Your journey
+                            Opening doors for talent to thrive in international careers across multiple industries. Your journey
                             starts here.
                         </motion.p>
 

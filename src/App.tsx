@@ -10,6 +10,7 @@ import WhatsAppChat from "./components/WhatsAppChat";
 import Home from "./pages/Home";
 import J1Program from "./pages/Application";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import HealthcareStaffing from "./pages/HealthcareStaffing";
 import TeachingOpportunities from "./pages/TeachingOpportunities";
@@ -45,6 +46,7 @@ const App = () => {
               <Route path="/hospitality-careers" element={<HospitalityCareers />} />
 
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/reviews" element={<Reviews />} />
               <Route path="/documentation" element={<Documentation />} />

@@ -73,7 +73,7 @@ const J1Program = () => {
               Begin Your Application Journey
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Take the first step towards your American career. Our streamlined application process makes it easy to get started.
+              Take the first step towards your global career. Our streamlined application process makes it easy to get started.
             </p>
           </div>
 

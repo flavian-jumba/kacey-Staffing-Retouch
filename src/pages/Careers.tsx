@@ -1,53 +1,5 @@
-import { Gallery4 } from '@/components/ui/gallery4';
 import SEO from '@/components/SEO';
-
-const careerItems = [
-  {
-    id: 'healthcare',
-    title: 'Healthcare Staffing',
-    description:
-      'Join top-tier U.S. hospitals, clinics, and medical facilities as a nurse, therapist, or healthcare specialist.',
-    href: '/healthcare-staffing',
-    image:
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1080&q=80&fit=max&fm=jpg',
-  },
-  {
-    id: 'teaching',
-    title: 'Teaching Opportunities',
-    description:
-      'Shape young minds in American K-12 schools and universities. Full J-1 visa sponsorship available.',
-    href: '/teaching-opportunities',
-    image:
-      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1080&q=80&fit=max&fm=jpg',
-  },
-  {
-    id: 'hospitality',
-    title: 'Hospitality Careers',
-    description:
-      'Find your place in world-class hotels, resorts, and restaurants across the United States.',
-    href: '/hospitality-careers',
-    image:
-      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1080&q=80&fit=max&fm=jpg',
-  },
-  {
-    id: 'j1-program',
-    title: 'J-1 Exchange Program',
-    description:
-      'Experience American culture while building your career through our fully supported J-1 visa exchange program.',
-    href: '/programs',
-    image:
-      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=1080&q=80&fit=max&fm=jpg',
-  },
-  {
-    id: 'apply',
-    title: 'Start Your Application',
-    description:
-      'Ready to take the leap? Submit your application today and our team will reach out within 1 business day.',
-    href: '/programs',
-    image:
-      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1080&q=80&fit=max&fm=jpg',
-  },
-];
+import OpenPositions from '@/components/OpenPositions';
 
 const Careers = () => {
   return (
@@ -73,20 +25,13 @@ const Careers = () => {
             Find Your Next<br />Career Move
           </h1>
           <p className="text-white/60 text-lg max-w-xl mx-auto">
-            We connect international professionals with life-changing opportunities
-            in the United States across healthcare, education, and hospitality.
+            We connect skilled and unskilled professionals to international job opportunities across healthcare, teaching, hospitality, and a wide range of other industries.
           </p>
         </div>
       </div>
 
-      {/* Gallery carousel */}
-      <div className="bg-white">
-        <Gallery4
-          title="Explore Opportunities"
-          description="Browse our career pathways and find the opportunity that matches your skills and ambitions."
-          items={careerItems}
-        />
-      </div>
+      {/* Dynamic Open Positions from Supabase */}
+      <OpenPositions />
 
       {/* CTA strip */}
       <div

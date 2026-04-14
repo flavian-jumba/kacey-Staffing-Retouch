@@ -114,18 +114,16 @@ const timelineData = [
     content: (
       <div className="space-y-5">
         <div>
-          <h4 className="text-white text-xl font-bold mb-1">Australia &amp; Global Expansion</h4>
+          <h4 className="text-white text-xl font-bold mb-1">Global Expansion Milestones</h4>
           <p className="text-white/60 text-sm leading-relaxed max-w-lg">
-            2025 marked a major milestone — Kacey opened its Australia placement corridor,
-            partnering with leading hospitals and care facilities Down Under. The team grew,
-            partner network doubled, and the first 100-placement milestone was achieved.
+            2025 marked a major milestone — Kacey expanded its global reach, establishing active placements in the USA, Malta, and Gulf Countries. The team grew, partner network doubled, and the first 100-placement milestone was achieved.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 max-w-lg">
           <img
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80"
-            alt="Australia expansion"
+            alt="Global expansion"
             className="rounded-xl object-cover h-36 w-full shadow-[0_0_20px_rgba(0,0,0,0.4)]"
           />
           <img
@@ -142,13 +140,13 @@ const timelineData = [
         </div>
 
         <div className="space-y-2">
-          <Milestone icon={GlobeIcon} text="Australia healthcare placement corridor opened" />
+          <Milestone icon={GlobeIcon} text="Active placements established in USA, Malta, and Gulf Countries" />
           <Milestone icon={CheckCircle2Icon} text="StudyPage partnership added for education programs" />
           <Milestone icon={UsersIcon} text="Team expanded — dedicated recruiters per industry" />
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <Tag><GlobeIcon className="w-3 h-3" /> Australia Launch</Tag>
+          <Tag><GlobeIcon className="w-3 h-3" /> Global Expansion</Tag>
           <Tag>100+ Placed</Tag>
           <Tag>5 New Partners</Tag>
         </div>
@@ -190,7 +188,7 @@ const timelineData = [
 
         <div className="space-y-2">
           <Milestone icon={HeartIcon} text="Still committed to every professional&apos;s journey, one placement at a time" />
-          <Milestone icon={GlobeIcon} text="Active placements in US, Australia, and Canada pipeline" />
+          <Milestone icon={GlobeIcon} text="Active Placements in USA, Malta and Gulf Countries" />
           <Milestone icon={CheckCircle2Icon} text="New consultations portal launched for 1-on-1 guidance" />
         </div>
 

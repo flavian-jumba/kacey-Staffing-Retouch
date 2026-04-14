@@ -9,6 +9,114 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      blogs: {
+        Row: {
+          id: string
+          title: string
+          slug: string
+          excerpt: string | null
+          content: string
+          cover_image_url: string | null
+          author: string
+          category: string
+          tags: string[]
+          read_time: string
+          is_published: boolean
+          published_at: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          slug?: string
+          excerpt?: string | null
+          content: string
+          cover_image_url?: string | null
+          author?: string
+          category?: string
+          tags?: string[]
+          read_time?: string
+          is_published?: boolean
+          published_at?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          slug?: string
+          excerpt?: string | null
+          content?: string
+          cover_image_url?: string | null
+          author?: string
+          category?: string
+          tags?: string[]
+          read_time?: string
+          is_published?: boolean
+          published_at?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      careers: {
+        Row: {
+          id: string
+          title: string
+          slug: string
+          department: string
+          location: string
+          employment_type: string
+          description: string
+          requirements: string[]
+          benefits: string[]
+          salary_range: string | null
+          cover_image_url: string | null
+          is_published: boolean
+          published_at: string | null
+          application_url: string | null
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          slug?: string
+          department: string
+          location: string
+          employment_type?: string
+          description: string
+          requirements?: string[]
+          benefits?: string[]
+          salary_range?: string | null
+          cover_image_url?: string | null
+          is_published?: boolean
+          published_at?: string | null
+          application_url?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          slug?: string
+          department?: string
+          location?: string
+          employment_type?: string
+          description?: string
+          requirements?: string[]
+          benefits?: string[]
+          salary_range?: string | null
+          cover_image_url?: string | null
+          is_published?: boolean
+          published_at?: string | null
+          application_url?: string | null
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       j1_applications: {
         Row: {
           authorized_to_work: boolean

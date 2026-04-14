@@ -1,174 +1,164 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { LazyImage } from './lazy-image';
+import { supabase } from '@/integrations/supabase/client';
+import { FileText } from 'lucide-react';
 
-const blogs = [
-  {
-    title: 'How to Land a Healthcare Job in the USA as an International Nurse',
-    slug: '#',
-    description:
-      'A step-by-step guide to navigating licensure, visas, and placement opportunities for internationally trained nurses seeking US healthcare roles.',
-    image: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=640&h=360&fit=crop',
-    createdAt: '2026-02-18',
-    author: 'Kacey Staffing Team',
-    readTime: '7 min read',
-  },
-  {
-    title: 'Understanding the J-1 Exchange Visitor Program',
-    slug: '#',
-    description:
-      'Everything you need to know about the J-1 visa, eligibility requirements, program categories, and how Kacey Staffing can help you get placed.',
-    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=640&h=360&fit=crop',
-    createdAt: '2026-01-30',
-    author: 'Kacey Staffing Team',
-    readTime: '8 min read',
-  },
-  {
-    title: 'Teaching Abroad: Your Guide to Classroom Opportunities in America',
-    slug: '#',
-    description:
-      'Discover how qualified teachers from around the world are finding rewarding K-12 placements across the United States through exchange programs.',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=640&h=360&fit=crop',
-    createdAt: '2026-01-12',
-    author: 'Kacey Staffing Team',
-    readTime: '6 min read',
-  },
-  {
-    title: 'Top 5 Hospitality Careers Available Through International Staffing',
-    slug: '#',
-    description:
-      'From hotel management to culinary arts—explore the most sought-after hospitality roles and how to qualify for an international placement.',
-    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=640&h=360&fit=crop',
-    createdAt: '2025-12-20',
-    author: 'Kacey Staffing Team',
-    readTime: '5 min read',
-  },
-  {
-    title: 'Preparing Your Resume for the US Job Market',
-    slug: '#',
-    description:
-      'Key differences between international CVs and American resumes, plus tips on how to tailor your application to stand out to US employers.',
-    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=640&h=360&fit=crop',
-    createdAt: '2025-12-05',
-    author: 'Kacey Staffing Team',
-    readTime: '4 min read',
-  },
-  {
-    title: 'Life After Placement: Settling Into the United States',
-    slug: '#',
-    description:
-      'Practical advice on housing, banking, cultural adjustment, and building a community once you arrive for your international work placement.',
-    image: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=640&h=360&fit=crop',
-    createdAt: '2025-11-18',
-    author: 'Kacey Staffing Team',
-    readTime: '9 min read',
-  },
-  {
-    title: 'CNA vs RN: Which Healthcare Path Is Right for You?',
-    slug: '#',
-    description:
-      'Comparing the certified nursing assistant and registered nurse career tracks, and how each leads to international placement opportunities.',
-    image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=640&h=360&fit=crop',
-    createdAt: '2025-11-02',
-    author: 'Kacey Staffing Team',
-    readTime: '6 min read',
-  },
-  {
-    title: 'How We Place Professionals: The Kacey Staffing Process',
-    slug: '#',
-    description:
-      'A transparent look at how our team matches international candidates with the right employers—from initial consultation to first day on the job.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=640&h=360&fit=crop',
-    createdAt: '2025-10-15',
-    author: 'Kacey Staffing Team',
-    readTime: '5 min read',
-  },
-  {
-    title: 'Australia vs USA: Where Should You Work as a Healthcare Professional?',
-    slug: '#',
-    description:
-      'Comparing working conditions, pay scales, licensing requirements, and lifestyle considerations for nurses and caregivers in both countries.',
-    image: 'https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=640&h=360&fit=crop',
-    createdAt: '2025-09-28',
-    author: 'Kacey Staffing Team',
-    readTime: '10 min read',
-  },
-  {
-    title: 'Success Story: From the Philippines to a US Hospital in 6 Months',
-    slug: '#',
-    description:
-      "One nurse's journey through the placement process—the challenges, the paperwork, and the rewarding outcome of starting a new life abroad.",
-    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=640&h=360&fit=crop',
-    createdAt: '2025-09-10',
-    author: 'Kacey Staffing Team',
-    readTime: '7 min read',
-  },
-  {
-    title: 'English Proficiency Tests: IELTS vs TOEFL for International Workers',
-    slug: '#',
-    description:
-      'Which English test does your US employer or visa require? We break down the differences and how to prepare for each.',
-    image: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=640&h=360&fit=crop',
-    createdAt: '2025-08-22',
-    author: 'Kacey Staffing Team',
-    readTime: '5 min read',
-  },
-  {
-    title: 'Frequently Asked Questions About Working in the US on a Visa',
-    slug: '#',
-    description:
-      'Answers to the most common questions candidates ask us about work authorization, visa types, sponsorship, and employer obligations.',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=640&h=360&fit=crop',
-    createdAt: '2025-08-05',
-    author: 'Kacey Staffing Team',
-    readTime: '8 min read',
-  },
-];
+type BlogPost = {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string | null;
+  content: string;
+  cover_image_url: string | null;
+  author: string;
+  category: string;
+  tags: string[];
+  read_time: string;
+  is_published: boolean;
+  published_at: string | null;
+  created_at: string;
+};
 
 export function BlogSection() {
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+
+  useEffect(() => {
+    fetchBlogs();
+
+    // Subscribe to real-time changes
+    const channel = supabase
+      .channel('blogs-realtime')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'blogs' },
+        () => {
+          fetchBlogs();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, []);
+
+  const fetchBlogs = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('blogs')
+        .select('*')
+        .eq('is_published', true)
+        .order('published_at', { ascending: false });
+
+      if (error) throw error;
+      setBlogs(data || []);
+    } catch (err) {
+      console.error('Failed to fetch blogs:', err);
+      setBlogs([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const categories = ['All', ...Array.from(new Set(blogs.map((b) => b.category).filter(Boolean)))];
+
+  const filteredBlogs =
+    selectedCategory === 'All'
+      ? blogs
+      : blogs.filter((b) => b.category === selectedCategory);
+
   return (
     <div className="mx-auto w-full max-w-5xl grow">
       <div className="space-y-1 px-4 py-8">
-        <h1 className="font-mono text-4xl font-bold tracking-wide">
-          Our Blog
-        </h1>
+        <h1 className="font-mono text-4xl font-bold tracking-wide">Our Blog</h1>
         <p className="text-muted-foreground text-base">
-          Insights, guides, and stories to help international professionals start their careers abroad.
+          Insights, guides, and stories to help international professionals start their careers
+          abroad.
         </p>
       </div>
-      <div className="border-b border-dashed w-full" />
-      <div className="grid p-4 md:grid-cols-2 lg:grid-cols-3 z-10">
-        {blogs.map((blog) => (
-          <a
-            href={blog.slug}
-            key={blog.title}
-            className="group hover:bg-accent/60 active:bg-accent flex flex-col gap-2 rounded-lg p-2 duration-75"
+
+      {/* Category Filter */}
+      <div className="px-4 pb-4 flex flex-wrap gap-2">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedCategory(cat)}
+            className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+              selectedCategory === cat
+                ? 'bg-[#8B1A4A] text-white'
+                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
           >
-            <LazyImage
-              src={blog.image}
-              fallback="https://placehold.co/640x360?text=Kacey+Staffing"
-              inView={true}
-              alt={blog.title}
-              ratio={16 / 9}
-              className="transition-all duration-500 group-hover:scale-105"
-            />
-            <div className="space-y-2 px-2 pb-2">
-              <div className="text-muted-foreground flex items-center gap-2 text-[11px] sm:text-xs">
-                <p>by {blog.author}</p>
-                <div className="bg-muted-foreground size-1 rounded-full" />
-                <p>{blog.createdAt}</p>
-                <div className="bg-muted-foreground size-1 rounded-full" />
-                <p>{blog.readTime}</p>
-              </div>
-              <h2 className="line-clamp-2 text-lg leading-5 font-semibold tracking-tight">
-                {blog.title}
-              </h2>
-              <p className="text-muted-foreground line-clamp-3 text-sm">
-                {blog.description}
-              </p>
-            </div>
-          </a>
+            {cat}
+          </button>
         ))}
       </div>
+
+      <div className="border-b border-dashed w-full" />
+
+      {loading ? (
+        <div className="flex items-center justify-center py-20">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#8B1A4A]" />
+        </div>
+      ) : blogs.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
+          <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-4">
+            <FileText className="w-8 h-8 text-gray-400" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">No Blog Posts Yet</h3>
+          <p className="text-gray-500 max-w-md">
+            We're working on creating valuable content for you. Check back soon for insights, 
+            guides, and stories about international careers and opportunities.
+          </p>
+        </div>
+      ) : (
+        <div className="grid p-4 md:grid-cols-2 lg:grid-cols-3 z-10">
+          {filteredBlogs.map((blog) => (
+            <a
+              href={`/blog/${blog.slug}`}
+              key={blog.id}
+              className="group hover:bg-accent/60 active:bg-accent flex flex-col gap-2 rounded-lg p-2 duration-75"
+            >
+              <LazyImage
+                src={blog.cover_image_url || 'https://placehold.co/640x360?text=Kacey+Staffing'}
+                fallback="https://placehold.co/640x360?text=Kacey+Staffing"
+                inView={true}
+                alt={blog.title}
+                ratio={16 / 9}
+                className="transition-all duration-500 group-hover:scale-105"
+              />
+              <div className="space-y-2 px-2 pb-2">
+                <div className="text-muted-foreground flex items-center gap-2 text-[11px] sm:text-xs">
+                  <p>by {blog.author}</p>
+                  <div className="bg-muted-foreground size-1 rounded-full" />
+                  <p>
+                    {new Date(blog.published_at || blog.created_at).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </p>
+                  <div className="bg-muted-foreground size-1 rounded-full" />
+                  <p>{blog.read_time}</p>
+                </div>
+                <h2 className="line-clamp-2 text-lg leading-5 font-semibold tracking-tight">
+                  {blog.title}
+                </h2>
+                <p className="text-muted-foreground line-clamp-3 text-sm">
+                  {blog.excerpt || blog.content.substring(0, 150) + '...'}
+                </p>
+                {blog.category && (
+                  <span className="inline-block text-[10px] font-medium text-[#8B1A4A] bg-pink-50 px-2 py-0.5 rounded-full">
+                    {blog.category}
+                  </span>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

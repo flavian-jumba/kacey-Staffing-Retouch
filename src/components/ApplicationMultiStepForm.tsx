@@ -553,7 +553,7 @@ const ApplicationMultiStepForm = () => {
                     <motion.div variants={fadeInUp} className="space-y-2">
                       <FileUploadField
                         id="transcript-upload"
-                        label="Nursing School Transcripts & Certificate (optional)"
+                        label="Nursing School Transcripts & Training Certificates"
                         accept=".pdf,.doc,.docx"
                         required={false}
                         onFileUploaded={(url) => update("transcriptUrl", url)}

@@ -287,7 +287,7 @@ const Services = () => {
               { step: '1', title: 'Application & Assessment', description: 'Submit your application and complete our comprehensive skills assessment.' },
               { step: '2', title: 'Matching & Placement', description: 'We match your skills with the perfect employer opportunities.' },
               { step: '3', title: 'Visa Support', description: 'Complete J1 visa application with our expert guidance and support.' },
-              { step: '4', title: 'Career Success', description: 'Begin your American career with ongoing mentorship and support.' }
+              { step: '4', title: 'Career Success', description: 'Begin your global career with ongoing mentorship and support.' }
             ].map((process, index) => (
               <div key={index} className="text-center">
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-custom-blue text-white rounded-full text-2xl font-bold mb-4">
@@ -309,7 +309,7 @@ const Services = () => {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-6">
-            Ready to Launch Your American Career?
+            Ready to Launch Your Global Career?
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Join thousands of professionals who have found success through our specialized staffing services.
