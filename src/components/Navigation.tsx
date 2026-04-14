@@ -232,7 +232,7 @@ const Navigation = () => {
             </Link>
 
             {/* Admin Login Button */}
-            <a
+            {/* <a
               // href="https://kacey-staffing-admin-final.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
@@ -245,7 +245,7 @@ const Navigation = () => {
             >
               <Shield className="w-3 h-3" />
               <ExternalLink className="w-2 h-2 opacity-60 group-hover:opacity-100 transition-opacity" />
-            </a>
+            </a> */}
           </div>
 
           {/* Mobile menu button */}
