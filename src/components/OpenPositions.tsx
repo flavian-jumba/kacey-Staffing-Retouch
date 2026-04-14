@@ -219,25 +219,14 @@ export default function OpenPositions() {
                   })}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-4 border-t border-gray-100">
-                  <button
-                    onClick={() => setExpandedId(expandedId === career.id ? null : career.id)}
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all duration-200"
-                  >
-                    {expandedId === career.id ? 'Less Info' : 'More Info'}
-                    {expandedId === career.id ? (
-                      <ChevronUp className="w-4 h-4" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4" />
-                    )}
-                  </button>
+                {/* Apply Now Button */}
+                <div className="pt-4 border-t border-gray-100">
                   {career.application_url ? (
                     <a
                       href={career.application_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-200 shadow-lg shadow-gray-900/20 hover:shadow-xl"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-semibold text-white bg-[#8B1A4A] hover:bg-[#6d1339] transition-all duration-300 shadow-lg shadow-[#8B1A4A]/25 hover:shadow-xl hover:-translate-y-0.5"
                     >
                       Apply Now
                       <ArrowRight className="w-4 h-4" />
@@ -245,13 +234,26 @@ export default function OpenPositions() {
                   ) : (
                     <Link
                       to="/programs"
-                      className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold text-white bg-gray-900 hover:bg-gray-800 transition-all duration-200 shadow-lg shadow-gray-900/20 hover:shadow-xl"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-semibold text-white bg-[#8B1A4A] hover:bg-[#6d1339] transition-all duration-300 shadow-lg shadow-[#8B1A4A]/25 hover:shadow-xl hover:-translate-y-0.5"
                     >
                       Apply Now
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   )}
                 </div>
+
+                {/* View Details Toggle */}
+                <button
+                  onClick={() => setExpandedId(expandedId === career.id ? null : career.id)}
+                  className="w-full mt-3 inline-flex items-center justify-center gap-1.5 py-2 text-xs font-medium text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  {expandedId === career.id ? 'Hide Details' : 'View Full Details'}
+                  {expandedId === career.id ? (
+                    <ChevronUp className="w-3.5 h-3.5" />
+                  ) : (
+                    <ChevronDown className="w-3.5 h-3.5" />
+                  )}
+                </button>
               </div>
 
               {/* Expanded Details Panel */}
