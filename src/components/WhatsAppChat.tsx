@@ -20,7 +20,7 @@ const WhatsAppChat = () => {
     "I'm interested in Teaching Opportunities",
     "Tell me about Healthcare Staffing",
     "I want to know about Hospitality Careers", 
-    "What are the visa requirements?",
+    "I am looking for opportunities to study abroad",
     "How do I start the application process?"
   ];
 

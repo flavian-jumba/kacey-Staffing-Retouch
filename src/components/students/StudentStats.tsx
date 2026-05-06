@@ -36,14 +36,14 @@ const stats = [
   {
     to: 500,
     suffix: '+',
-    label: 'Student Placements',
-    description: 'Across leading global institutions',
+    label: 'Placements',
+    description: 'Across leading global institution',
   },
   {
     to: 98,
     suffix: '%',
     label: 'Satisfaction Rate',
-    description: 'From students and partner schools',
+    description: 'Among our stakeholders',
   },
 ];
 

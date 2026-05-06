@@ -29,7 +29,7 @@ const StudentCTA = () => {
 
           <div className="mt-10 flex justify-center">
             <a
-              href="https://wa.me/254000000000"
+              href="https://wa.me/254793934455?text=Hi%20Kacey%20Staffing%2C%20I%27m%20interested%20in%20studying%20abroad.%20Can%20you%20help%3F"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center justify-center rounded-full bg-[#8B1A4A] px-8 py-4 text-base font-semibold text-white shadow-[0_10px_32px_rgba(139,26,74,0.45)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#a01f57] hover:shadow-[0_14px_40px_rgba(139,26,74,0.55)]"
