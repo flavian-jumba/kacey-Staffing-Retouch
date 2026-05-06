@@ -1,14 +1,47 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { animate, useInView } from 'framer-motion';
 import { ScrollAnimation } from '../ui/scroll-animation';
+
+interface CountUpProps {
+  to: number;
+  duration?: number;
+  suffix?: string;
+  className?: string;
+}
+
+const CountUp: React.FC<CountUpProps> = ({ to, duration = 2, suffix = '', className }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(0, to, {
+      duration,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setValue(v),
+    });
+    return () => controls.stop();
+  }, [inView, to, duration]);
+
+  return (
+    <span ref={ref} className={className}>
+      {Math.round(value)}
+      {suffix}
+    </span>
+  );
+};
 
 const stats = [
   {
-    value: '500+',
+    to: 500,
+    suffix: '+',
     label: 'Student Placements',
     description: 'Across leading global institutions',
   },
   {
-    value: '98%',
+    to: 98,
+    suffix: '%',
     label: 'Satisfaction Rate',
     description: 'From students and partner schools',
   },
@@ -25,9 +58,11 @@ const StudentStats = () => {
                 key={stat.label}
                 className="group relative bg-white p-10 transition-colors duration-300 hover:bg-[#0f2d5c]/[0.02] sm:p-14"
               >
-                <div className="text-5xl font-semibold tracking-tight text-[#0f2d5c] sm:text-6xl">
-                  {stat.value}
-                </div>
+                <CountUp
+                  to={stat.to}
+                  suffix={stat.suffix}
+                  className="block text-5xl font-semibold tracking-tight text-[#0f2d5c] sm:text-6xl tabular-nums"
+                />
                 <div className="mt-3 text-base font-medium text-[#0f2d5c]/80">
                   {stat.label}
                 </div>

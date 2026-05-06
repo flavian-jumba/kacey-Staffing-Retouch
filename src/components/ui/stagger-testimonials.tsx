@@ -34,6 +34,18 @@ const testimonials = [
     testimonial: "Relocating internationally for work is scary, but Kacey made it feel effortless. Their placement team genuinely cares about your success.",
     by: "Priya Menon, Physical Therapist",
     //imgSrc: "https://i.pravatar.cc/150?img=44"
+  },
+  {
+    tempId: 5,
+    testimonial: "The J1 visa process seemed overwhelming, but Kacey guided me through every step. I'm now teaching at a fantastic school in Texas and loving every moment.",
+    by: "Samuel Okoye, ESL Teacher",
+    //imgSrc: "https://i.pravatar.cc/150?img=33"
+  },
+  {
+    tempId: 0,
+    testimonial: "Mercy, Registered Nurse (F1 Visa to EB 3 Visa): Mercy is a nurse from Kenya, initially arrived in the united states as a student under the F1 program and turned her dream of working in the U.S. healthcare system into reality through the EB-3 visa program.With our support throughout the process, she successfully secured a nursing role at a trusted healthcare facility.",
+    by: "Mercy, Registered Nurse",
+    //imgSrc: "https://i.pravatar.cc/150?img=47"
   }
 ];
 
