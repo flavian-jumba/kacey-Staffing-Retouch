@@ -7,9 +7,11 @@ const partnerLogos = [
   { src: '/partners/Aspen-Experience-1.png', alt: 'Aspen Experience' },
   { src: '/partners/Logo-Triangle-Healthcare-Consulting-Inc.webp', alt: 'Triangle Healthcare Consulting' },
   { src: '/partners/logo.png', alt: 'StudyPage' },
+  { src: '/partners/logo-echelon.png', alt: 'Echelon — Empowering People' },
   { src: '/partners/Aspen-Experience-1.png', alt: 'Aspen Experience 2' },
   { src: '/partners/Logo-Triangle-Healthcare-Consulting-Inc.webp', alt: 'Triangle Healthcare 2' },
   { src: '/partners/logo.png', alt: 'StudyPage 2' },
+  { src: '/partners/logo-echelon.png', alt: 'Echelon 2' },
 ];
 
 const stats = [

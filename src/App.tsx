@@ -21,6 +21,7 @@ import { useScrollAnimations } from "./hooks/useGlobalAnimations";
 import TermsConditions from "./pages/TermsConditions";
 import DataProtectionPolicy from "./pages/DataProtectionPolicy";
 import Reviews from "./pages/Reviews";
+import Students from "./pages/Students";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => {
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/reviews" element={<Reviews />} />
+              <Route path="/students" element={<Students />} />
               <Route path="/documentation" element={<Documentation />} />
               <Route path="/terms-conditions" element={<TermsConditions />} />
               <Route path="/data-protection" element={<DataProtectionPolicy />} />

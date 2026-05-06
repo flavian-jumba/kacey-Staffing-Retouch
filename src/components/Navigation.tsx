@@ -83,6 +83,7 @@ const Navigation = () => {
   const flatNavTabs = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
+    { id: 'students', label: 'Students' },
     { id: 'careers', label: 'Careers' },
     { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
@@ -91,6 +92,7 @@ const Navigation = () => {
   const getActiveTab = () => {
     if (location.pathname === '/careers') return 'careers';
     if (location.pathname === '/blog') return 'blog';
+    if (location.pathname === '/students') return 'students';
     return location.pathname === '/' ? 'home' : 'home';
   };
 
@@ -99,6 +101,8 @@ const Navigation = () => {
       navigate('/careers');
     } else if (tabId === 'blog') {
       navigate('/blog');
+    } else if (tabId === 'students') {
+      navigate('/students');
     } else if (tabId === 'contact') {
       scrollToSection('contact');
     } else if (tabId === 'home') {
@@ -123,7 +127,7 @@ const Navigation = () => {
               src="/kacey-logo.png" 
               alt="Kacey Staffing Agency" 
               className={`h-10 sm:h-12 w-auto max-w-[180px] transition-all duration-300 ${
-                ['/', '/programs', '/application'].includes(location.pathname) && !isScrolled ? '' : 'filter brightness-0 invert drop-shadow-lg'
+                ['/', '/programs', '/application', '/students'].includes(location.pathname) && !isScrolled ? '' : 'filter brightness-0 invert drop-shadow-lg'
               }`}
             />
           </button>
@@ -132,10 +136,10 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center">
             {/* Vercel-style Tabs for flat nav items */}
             <Tabs
-              tabs={flatNavTabs.filter(t => t.id !== 'careers' && t.id !== 'blog' && t.id !== 'contact').concat([])}
+              tabs={flatNavTabs.filter(t => t.id === 'home' || t.id === 'about')}
               activeTab={getActiveTab()}
               onTabChange={handleTabChange}
-              variant={['/', '/programs', '/application'].includes(location.pathname) && !isScrolled ? 'light' : 'dark'}
+              variant={['/', '/programs', '/application', '/students'].includes(location.pathname) && !isScrolled ? 'light' : 'dark'}
               className="mr-1"
             />
 
@@ -148,7 +152,7 @@ const Navigation = () => {
             >
               <button
                 className={`flex items-center px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md h-[34px] ${
-                  ['/', '/programs', '/application'].includes(location.pathname) && !isScrolled
+                  ['/', '/programs', '/application', '/students'].includes(location.pathname) && !isScrolled
                     ? 'text-[#8B1A4A]/70 hover:text-[#8B1A4A] hover:bg-[#8B1A4A]/10 font-semibold'
                     : 'text-white/60 hover:text-white/80 hover:bg-white/10'
                 }`}
@@ -210,10 +214,10 @@ const Navigation = () => {
 
             {/* Remaining flat tabs: Careers, Blog, Contact */}
             <Tabs
-              tabs={flatNavTabs.filter(t => t.id === 'careers' || t.id === 'blog' || t.id === 'contact')}
+              tabs={flatNavTabs.filter(t => t.id === 'students' || t.id === 'careers' || t.id === 'blog' || t.id === 'contact')}
               activeTab={getActiveTab()}
               onTabChange={handleTabChange}
-              variant={['/', '/programs', '/application'].includes(location.pathname) && !isScrolled ? 'light' : 'dark'}
+              variant={['/', '/programs', '/application', '/students'].includes(location.pathname) && !isScrolled ? 'light' : 'dark'}
               className="ml-1"
             />
           </div>
@@ -237,7 +241,7 @@ const Navigation = () => {
               target="_blank"
               rel="noopener noreferrer"
               className={`group flex items-center gap-1 px-3 py-2 rounded-md text-xs font-medium transition-all duration-200 border backdrop-blur-sm ${
-                ['/', '/programs', '/application'].includes(location.pathname) && !isScrolled
+                ['/', '/programs', '/application', '/students'].includes(location.pathname) && !isScrolled
                   ? 'border-[#8B1A4A]/20 bg-[#8B1A4A]/5 text-[#8B1A4A] hover:bg-[#8B1A4A]/10 hover:border-[#8B1A4A]/30'
                   : 'border-white/20 bg-white/10 text-white hover:bg-white/20 hover:border-white/30'
               }`}
@@ -253,7 +257,7 @@ const Navigation = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-md transition-colors ${
-                ['/', '/programs', '/application'].includes(location.pathname) && !isScrolled
+                ['/', '/programs', '/application', '/students'].includes(location.pathname) && !isScrolled
                   ? 'text-[#8B1A4A] hover:bg-[#8B1A4A]/10'
                   : 'text-white hover:text-white/70 hover:bg-white/10'
               }`}
@@ -329,6 +333,13 @@ const Navigation = () => {
 
               {/* Secondary Actions */}
               <div className="border-t border-white/20 pt-3 space-y-1">
+                <Link
+                  to="/students"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-3 text-base font-medium text-white hover:text-white/70 hover:bg-white/10 rounded-md transition-colors"
+                >
+                  Students
+                </Link>
                 <Link
                   to="/careers"
                   onClick={() => setIsOpen(false)}

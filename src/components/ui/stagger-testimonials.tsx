@@ -7,63 +7,33 @@ const SQRT_5000 = Math.sqrt(5000);
 const testimonials = [
   {
     tempId: 0,
-    testimonial: "I would like to sincerely thank the entire Kacey Staffing team for the support you have given me in realizing my American dream. Everything went on smooth. Thanks a lot for your tireless effort in assisting me.",
-    by: "Olipha Sereti, Registered Nurse",
-    imgSrc: "https://i.pravatar.cc/150?img=47"
+    testimonial: "Mercy, Registered Nurse (F1 Visa to EB 3 Visa): Mercy is a nurse from Kenya, initially arrived in the united states as a student under the F1 program and turned her dream of working in the U.S. healthcare system into reality through the EB-3 visa program.With our support throughout the process, she successfully secured a nursing role at a trusted healthcare facility.",
+    by: "Mercy, Registered Nurse",
+    //imgSrc: "https://i.pravatar.cc/150?img=47"
   },
   {
     tempId: 1,
     testimonial: "Kacey Staffing made the transition seamless. The professional development opportunities here are unmatched.",
     by: "Mercy Jepngetich, Hospitality Manager",
-    imgSrc: "https://i.pravatar.cc/150?img=48"
+    //imgSrc: "https://i.pravatar.cc/150?img=48"
   },
   {
     tempId: 2,
     testimonial: "Kacey Staffing transformed my career completely. From a nurse in my home country to working in one of America's top hospitals. Their support team was with me every step of the way.",
     by: "Barbara K, Registered Nurse",
-    imgSrc: "https://i.pravatar.cc/150?img=49"
+    //imgSrc: "https://i.pravatar.cc/150?img=49"
   },
   {
     tempId: 3,
     testimonial: "The J1 visa process seemed overwhelming, but Kacey guided me through every step. I'm now teaching at a fantastic school in Texas and loving every moment.",
     by: "Samuel Okoye, ESL Teacher",
-    imgSrc: "https://i.pravatar.cc/150?img=33"
+    //imgSrc: "https://i.pravatar.cc/150?img=33"
   },
   {
     tempId: 4,
     testimonial: "Relocating internationally for work is scary, but Kacey made it feel effortless. Their placement team genuinely cares about your success.",
     by: "Priya Menon, Physical Therapist",
-    imgSrc: "https://i.pravatar.cc/150?img=44"
-  },
-  {
-    tempId: 5,
-    testimonial: "I had applied to dozens of hospitality programs with no luck. Within three weeks of signing with Kacey, I had two hotel offers in Florida. Incredible team.",
-    by: "Jean-Paul Mvondo, Hotel Operations Lead",
-    imgSrc: "https://i.pravatar.cc/150?img=11"
-  },
-  {
-    tempId: 6,
-    testimonial: "Kacey's healthcare division is best-in-class. They matched my specialty perfectly and handled all the credentialing paperwork. Five stars without hesitation.",
-    by: "Dr. Amara Diallo, ICU Specialist",
-    imgSrc: "https://i.pravatar.cc/150?img=25"
-  },
-  {
-    tempId: 7,
-    testimonial: "From my first call to my first day at work, the support was constant. Kacey Staffing is the real deal for international professionals.",
-    by: "Tatiana Voronova, Culinary Arts Instructor",
-    imgSrc: "https://i.pravatar.cc/150?img=38"
-  },
-  {
-    tempId: 8,
-    testimonial: "I was skeptical at first, but my recruiter at Kacey was so transparent and responsive. I landed a nursing role in Chicago in under a month.",
-    by: "James Otieno, Registered Nurse",
-    imgSrc: "https://i.pravatar.cc/150?img=15"
-  },
-  {
-    tempId: 9,
-    testimonial: "The Australia placement program opened a door I never thought possible. Kacey took care of everything — visa, accommodation referrals, and onboarding support.",
-    by: "Nadia Al-Hassan, Occupational Therapist",
-    imgSrc: "https://i.pravatar.cc/150?img=54"
+    //imgSrc: "https://i.pravatar.cc/150?img=44"
   }
 ];
 
