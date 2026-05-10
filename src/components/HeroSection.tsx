@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Users, Heart, Award, Stethoscope, BookOpen, Star, Utensils, ThumbsUp } from 'lucide-react';
+import { ArrowRight, Users, Heart, Award, Stethoscope, BookOpen, Star, Utensils, ThumbsUp, GraduationCap, ShieldCheck, Globe2 } from 'lucide-react';
+import Typewriter, { type TypewriterSegment } from './ui/typewriter';
 
 /* ─── animation variants ──────────────────────────────────── */
 const fadeUp = {
@@ -38,12 +39,36 @@ const floatAlt = {
 };
 
 /* ─── slides data ─────────────────────────────────────────── */
-const slides = [
+type SlideHeadline = {
+    /** segments typed out by the Typewriter, in order. mark `breakAfter` to insert a line break */
+    segments: TypewriterSegment[];
+};
+
+const slides: Array<{
+    id: string;
+    image: string;
+    alt: string;
+    glowColor: string;
+    headline: SlideHeadline;
+    cards: {
+        topLeft: { icon: typeof Users; color: string; title: string; subtitle: string };
+        topRight: { icon: typeof Award; color: string; title: string; subtitle: string };
+        bottomRight: { icon: typeof Stethoscope; color: string; title: string; subtitle: string; badge: string; link: string };
+        bottomLeft: { icon: typeof Heart; color: string; title: string; subtitle: string };
+    };
+}> = [
     {
         id: 'nurse',
         image: '/home/hero-nurse.png',
         alt: 'Healthcare Professional',
         glowColor: 'from-[#0cc0df]/20',
+        headline: {
+            segments: [
+                { text: 'Healing Hands,', breakAfter: true },
+                { text: 'Global ' },
+                { text: 'Hearts', className: 'text-[#0cc0df]' },
+            ],
+        },
         cards: {
             topLeft: { icon: Users, color: 'text-[#0cc0df]', title: '500+', subtitle: 'Placed Professionals' },
             topRight: { icon: Award, color: 'text-amber-500', title: 'Trusted', subtitle: 'Licensed Agency' },
@@ -56,6 +81,13 @@ const slides = [
         image: '/home/hero-teacher.png',
         alt: 'Education Professional',
         glowColor: 'from-blue-500/20',
+        headline: {
+            segments: [
+                { text: 'Inspiring Minds,', breakAfter: true },
+                { text: 'Worldwide ' },
+                { text: 'Classrooms', className: 'text-[#0cc0df]' },
+            ],
+        },
         cards: {
             topLeft: { icon: Users, color: 'text-blue-500', title: '300+', subtitle: 'Educators Placed' },
             topRight: { icon: Award, color: 'text-amber-500', title: 'Certified', subtitle: 'Teaching Partners' },
@@ -68,11 +100,37 @@ const slides = [
         image: '/home/hero-hospitality.png',
         alt: 'Hospitality Professional',
         glowColor: 'from-amber-500/30',
+        headline: {
+            segments: [
+                { text: 'Service With', breakAfter: true },
+                { text: 'World-Class ' },
+                { text: 'Hospitality', className: 'text-[#0cc0df]' },
+            ],
+        },
         cards: {
             topLeft: { icon: Users, color: 'text-amber-600', title: '1000+', subtitle: 'Hospitality Staff Placed' },
             topRight: { icon: Award, color: 'text-amber-500', title: 'Top Rated', subtitle: 'Staffing Agency' },
             bottomRight: { icon: Utensils, color: 'text-orange-600', title: 'Sarah L.', subtitle: 'Hotel Manager', badge: 'Available', link: '/hospitality-careers' },
             bottomLeft: { icon: ThumbsUp, color: 'text-emerald-500', title: '99%', subtitle: 'Client Satisfaction' }
+        }
+    },
+    {
+        id: 'students',
+        image: '/home/hero-students.png',
+        alt: 'International Student',
+        glowColor: 'from-violet-500/25',
+        headline: {
+            segments: [
+                { text: 'Open Doors,', breakAfter: true },
+                { text: 'Open ' },
+                { text: 'Worlds', className: 'text-[#0cc0df]' },
+            ],
+        },
+        cards: {
+            topLeft: { icon: GraduationCap, color: 'text-violet-600', title: '1,200+', subtitle: 'Students Placed' },
+            topRight: { icon: ShieldCheck, color: 'text-amber-500', title: 'Accredited', subtitle: 'Partner Universities' },
+            bottomRight: { icon: BookOpen, color: 'text-violet-700', title: 'Amara O.', subtitle: 'BSc Nursing, USA', badge: 'Available', link: '/students' },
+            bottomLeft: { icon: Globe2, color: 'text-emerald-500', title: '40+', subtitle: 'Partner Universities' }
         }
     }
 ];
@@ -132,15 +190,19 @@ const HeroSection = () => {
                             </span>
                         </motion.div>
 
-                        {/* Headline */}
+                        {/* Headline — typewriter animation, unique per slide */}
                         <motion.h1
                             variants={fadeUp}
                             custom={1}
-                            className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-gray-900 mb-5"
+                            className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-gray-900 mb-5 min-h-[2.4em]"
                         >
-                            Matching Talent
-                            <br />
-                            to <span className="text-[#0cc0df]">Compassion</span>
+                            <Typewriter
+                                resetKey={slide.id}
+                                segments={slide.headline.segments}
+                                startDelay={250 + currentSlideIndex * 120}
+                                speed={55}
+                                cursorClassName="text-[#0cc0df]"
+                            />
                         </motion.h1>
 
                         {/* Subtitle */}
@@ -199,7 +261,7 @@ const HeroSection = () => {
                             </div>
                             <div>
                                 <p className="text-gray-900 font-bold text-sm">150k+ Lives Impacted</p>
-                                <p className="text-gray-500 text-xs">Across Healthcare, Teaching & Hospitality</p>
+                                <p className="text-gray-500 text-xs">Across Healthcare, Teaching, Hospitality &amp; Students</p>
                             </div>
                         </motion.div>
 
@@ -210,7 +272,7 @@ const HeroSection = () => {
                                 <p className="text-gray-500 text-sm font-medium">Years of Experience</p>
                             </div>
                             <div>
-                                <p className="text-3xl font-extrabold text-gray-900 tracking-tight">3</p>
+                                <p className="text-3xl font-extrabold text-gray-900 tracking-tight">4</p>
                                 <p className="text-gray-500 text-sm font-medium">Career Programs</p>
                             </div>
                             <div>
